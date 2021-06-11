@@ -3,7 +3,7 @@ from praw.util.token_manager import BaseTokenManager
 from flask import Flask, request
 app = Flask(__name__)
 class customTokenManager(BaseTokenManager):
-	token = ""
+  token = ""
 	def post_refresh_callback(self, authorizer): self.token = authorizer.refresh_token
 	def pre_refresh_callback(self, authorizer): authorizer.refresh_token = self.token
 	def set_initial_token(self, setToken): self.token = setToken
