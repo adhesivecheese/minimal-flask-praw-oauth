@@ -140,55 +140,51 @@ def authorized():
 
 if __name__ == '__main__':
 	#The praw reddit instance to login via oauth
-	auth_r = praw.Reddit(
-			client_id=CLIENT_ID,
-			client_secret=CLIENT_SECRET,
-			redirect_uri=REDIRECT_URI,
-			user_agent='OAuth Webserver example by u/adhesivecheese'
-	)
+	auth_r = praw.Reddit(client_id=CLIENT_ID,
+                         client_secret=CLIENT_SECRET,
+                         redirect_uri=REDIRECT_URI,
+                         user_agent='OAuth Webserver example by u/adhesivecheese'	)
 
 	# The praw reddit instance used to auth via refresh token
-	r = praw.Reddit(
-		client_id=CLIENT_ID,
-		client_secret=CLIENT_SECRET,
-		token_manager=refresh_token_manager,
-		user_agent=USER_AGENT
-	)
+	r = praw.Reddit(client_id=CLIENT_ID,
+                    client_secret=CLIENT_SECRET,
+                    token_manager=refresh_token_manager,
+                    user_agent=USER_AGENT   )
 
 	app.run(debug=True, port=SERVER_PORT)
 
 
 """
 Available scopes (fetched from https://www.reddit.com/api/v1/scopes.json on 11 June 2021):
-account						:Update preferences and related account information. Will not have access to your email or password.
-creddits					:Spend my reddit gold creddits on giving gold to other users.
-edit							:Edit and delete my comments and submissions.
-flair							:Select my subreddit flair. Change link flair on my submissions.
-history						:Access my voting history and comments or submissions I've saved or hidden.
-identity					:Access my reddit username and signup date.
-livemanage				:Manage settings and contributors of live threads I contribute to.
-modconfig					:Manage the configuration, sidebar, and CSS of subreddits I moderate.
+account			    :Update preferences and related account information. Will not have access to your email or password.
+creddits		    :Spend my reddit gold creddits on giving gold to other users.
+edit			    :Edit and delete my comments and submissions.
+flair			    :Select my subreddit flair. Change link flair on my submissions.
+history			    :Access my voting history and comments or submissions I've saved or hidden.
+identity		    :Access my reddit username and signup date.
+livemanage		    :Manage settings and contributors of live threads I contribute to.
+modconfig		    :Manage the configuration, sidebar, and CSS of subreddits I moderate.
 modcontributors		:Add/remove users to approved user lists and ban/unban or mute/unmute users from subreddits I moderate.
-modflair					:Manage and assign flair in subreddits I moderate.
-modlog						:Access the moderation log in subreddits I moderate.
-modmail						:Access and manage modmail via mod.reddit.com.
-modothers					:Invite or remove other moderators from subreddits I moderate.
-modposts					:Approve, remove, mark nsfw, and distinguish content in subreddits I moderate.
-modself						:Accept invitations to moderate a subreddit. Remove myself as a moderator or contributor of subreddits I moderate or contribute to.
-modtraffic				:Access traffic stats in subreddits I moderate.
-modwiki						:Change editors and visibility of wiki pages in subreddits I moderate.
-mysubreddits			:Access the list of subreddits I moderate, contribute to, and subscribe to.
+modflair		    :Manage and assign flair in subreddits I moderate.
+modlog			    :Access the moderation log in subreddits I moderate.
+modmail			    :Access and manage modmail via mod.reddit.com.
+modothers		    :Invite or remove other moderators from subreddits I moderate.
+modposts		    :Approve, remove, mark nsfw, and distinguish content in subreddits I moderate.
+modself			    :Accept invitations to moderate a subreddit. Remove myself as a moderator or contributor of subreddits I moderate or contribute to.
+modtraffic		    :Access traffic stats in subreddits I moderate.
+modwiki			    :Change editors and visibility of wiki pages in subreddits I moderate.
+mysubreddits		:Access the list of subreddits I moderate, contribute to, and subscribe to.
 privatemessages		:Access my inbox and send private messages to other users.
-read							:Access posts and comments through my account.
-report						:Report content for rules violations. Hide & show individual submissions.
-save							:Save and unsave comments and submissions.
+read			    :Access posts and comments through my account.
+report			    :Report content for rules violations. Hide & show individual submissions.
+save			    :Save and unsave comments and submissions.
 structuredstyles	:Edit structured styles for a subreddit I moderate.
-submit						:Submit links and comments from my account.
-subscribe					:Manage my subreddit subscriptions. Manage "friends" - users whose content I follow.
-vote							Submit and change my votes on comments and submissions.
-wikiedit					:Edit wiki pages on my behalf
-wikiread					:Read wiki pages through my account
+submit			    :Submit links and comments from my account.
+subscribe		    :Manage my subreddit subscriptions. Manage "friends" - users whose content I follow.
+vote			    :Submit and change my votes on comments and submissions.
+wikiedit		    :Edit wiki pages on my behalf
+wikiread		    :Read wiki pages through my account
 
 additionally:
-*								:Access all scopes
+*			        :Access all scopes
 """
