@@ -140,17 +140,21 @@ def authorized():
 
 if __name__ == '__main__':
 	#The praw reddit instance to login via oauth
-	auth_r = praw.Reddit(client_id=CLIENT_ID,
-									client_secret=CLIENT_SECRET,
-									redirect_uri=REDIRECT_URI,
-									user_agent='OAuth Webserver example by u/adhesivecheese')
+	auth_r = praw.Reddit(
+			client_id=CLIENT_ID,
+			client_secret=CLIENT_SECRET,
+			redirect_uri=REDIRECT_URI,
+			user_agent='OAuth Webserver example by u/adhesivecheese'
+	)
 
 	# The praw reddit instance used to auth via refresh token
 	r = praw.Reddit(
 		client_id=CLIENT_ID,
 		client_secret=CLIENT_SECRET,
 		token_manager=refresh_token_manager,
-		user_agent=USER_AGENT)
+		user_agent=USER_AGENT
+	)
+
 	app.run(debug=True, port=SERVER_PORT)
 
 
