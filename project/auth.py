@@ -52,7 +52,6 @@ def authorize():
 	if user.token: return redirect(url_for('main.profile'))
 	state = str(uuid4())
 	save_created_state(state)
-	scope = ["identity"]
 	return render_template('authorize.html', auth_link =auth_r.auth.url(scope, state, "permanent"))
 
 
