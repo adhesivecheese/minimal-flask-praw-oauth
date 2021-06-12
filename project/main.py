@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 import praw
 from praw.util.token_manager import BaseTokenManager
 from .models import User
-from constants import *
+from project.constants import *
 
 main = Blueprint('main', __name__)
 
